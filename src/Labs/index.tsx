@@ -15,6 +15,7 @@ export default function Labs() {
                 <Route path="Lab2" element={<Lab2 />} />
                 <Route path="Lab3" element={<Lab3 />} />
             </Routes>
+            <h4>Zexi Kuang 001520688 SC1</h4>
         </div>
     );
 }
