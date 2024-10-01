@@ -43,7 +43,7 @@ export default function AssignmentsControls() {
                         <input type="text" className="form-control wd-input-textbar" placeholder="Search for Assignment" aria-label="Search for assignment" aria-describedby="assignment-search-icon"></input>
                     </div>
                 </div> */}
-                <div className="d-flex align-items-center mb-4">
+                <div className="d-flex align-items-center mb-1">
                     <div className="input-group">
                         <span className="input-group-text bg-white border-end-0">
                             <CiSearch className="text-gray-500" />

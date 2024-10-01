@@ -1,3 +1,12 @@
 .wd-input-group-search-assignment {
     width: auto !important;
 }
+
+.wd-flex-row-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .wd-flex-grow-1 {
+    flex-grow: 1;
+  }
+  
