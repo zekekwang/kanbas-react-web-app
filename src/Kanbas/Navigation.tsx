@@ -69,27 +69,27 @@ export default function KanbasNavigation() {
                 <img src="/images/NEU.png" width="75px" /></a>
             <Link to="/Kanbas/Account" id="wd-account-link"
                 className={getLinkClass("/Kanbas/Account")}>
-                <FaRegCircleUser className="fs-1" /><br />
+                <FaRegCircleUser className="fs-1 text-danger" /><br />
                 Account </Link>
             <Link to="/Kanbas/Dashboard" id="wd-dashboard-link"
                 className={getLinkClass("/Kanbas/Dashboard")}>
-                <AiOutlineDashboard className="fs-1" /><br />
+                <AiOutlineDashboard className="fs-1 text-danger" /><br />
                 Dashboard </Link>
-            <Link to="/Kanbas/Courses" id="wd-course-link"
+            <Link to="/Kanbas/Dashboard" id="wd-course-link"
                 className={getLinkClass("/Kanbas/Courses")}>
-                <LiaBookSolid className="fs-1" /><br />
+                <LiaBookSolid className="fs-1 text-danger" /><br />
                 Courses </Link>
             <Link to="/Kanbas/Calendar" id="wd-calendar-link"
                 className={getLinkClass("/Kanbas/Calendar")}>
-                <IoCalendarOutline className="fs-1" /><br />
+                <IoCalendarOutline className="fs-1 text-danger" /><br />
                 Calendar </Link>
             <Link to="/Kanbas/Inbox" id="wd-inbox-link"
                 className={getLinkClass("/Kanbas/Inbox")}>
-                <FaInbox className="fs-1" /><br />
+                <FaInbox className="fs-1 text-danger" /><br />
                 Inbox </Link>
             <Link to="/Kanbas/Labs" id="wd-labs-link"
                 className={getLinkClass("/Kanbas/Labs")}>
-                <LiaCogSolid className="fs-1" /><br />
+                <LiaCogSolid className="fs-1 text-danger" /><br />
                 Labs </Link>
         </div>
     );

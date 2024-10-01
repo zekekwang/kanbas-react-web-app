@@ -41,3 +41,14 @@ body * {
 .wd-assignment {
     border-left: 3px solid green !important;
 }
+
+.custom-margin {
+    margin-bottom: 18px; /* 35 pixels is between 30 and 40 pixels */
+    margin-left: 18px; /* 35 pixels is between 30 and 40 pixels */
+    margin-right: 18px; /* 35 pixels is between 30 and 40 pixels */
+    margin-top: 18px; /* 35 pixels is between 30 and 40 pixels */
+  }
+
+.padding-15 {
+    padding: 15px !important;
+}
