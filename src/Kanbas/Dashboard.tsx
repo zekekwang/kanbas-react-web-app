@@ -225,7 +225,7 @@ export default function Dashboard({
                 style={{ width: "300px" }}
                 key={course._id}
               >
-                <div className="card rounded-3 overflow-hidden">
+                <div className="card rounded-3 overflow-hidden" style={{ height: "100%" }}>
                   <img
                     src={course.imageURL}
                     width="100%"
