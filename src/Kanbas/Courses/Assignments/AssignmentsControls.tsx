@@ -2,35 +2,35 @@ import { FaPlus } from 'react-icons/fa';
 import { CiSearch } from "react-icons/ci";
 
 export default function AssignmentsControls() {
-    const assignments = [
-        {
-            id: '123',
-            name: 'A1 - ENV + HTML',
-            href: '#/Kanbas/Courses/1234/Assignments/123',
-            modules: 'Multiple Modules',
-            availability: 'Not available until May 6 at 12:00am',
-            dueDate: 'May 13 at 11:59pm',
-            points: 100,
-        },
-        {
-            id: '124',
-            name: 'A2 - CSS + BOOTSTRAP',
-            href: '#/Kanbas/Courses/1234/Assignments/124',
-            modules: 'Multiple Modules',
-            availability: 'Not available until May 13 at 12:00am',
-            dueDate: 'May 20 at 11:59pm',
-            points: 100,
-        },
-        {
-            id: '125',
-            name: 'A3 - JAVASCRIPT + REACT',
-            href: '#/Kanbas/Courses/1234/Assignments/125',
-            modules: 'Multiple Modules',
-            availability: 'Not available until May 20 at 12:00am',
-            dueDate: 'May 27 at 11:59pm',
-            points: 100,
-        },
-    ];
+    // const assignments = [
+    //     {
+    //         id: '123',
+    //         name: 'A1 - ENV + HTML',
+    //         href: '#/Kanbas/Courses/1234/Assignments/123',
+    //         modules: 'Multiple Modules',
+    //         availability: 'Not available until May 6 at 12:00am',
+    //         dueDate: 'May 13 at 11:59pm',
+    //         points: 100,
+    //     },
+    //     {
+    //         id: '124',
+    //         name: 'A2 - CSS + BOOTSTRAP',
+    //         href: '#/Kanbas/Courses/1234/Assignments/124',
+    //         modules: 'Multiple Modules',
+    //         availability: 'Not available until May 13 at 12:00am',
+    //         dueDate: 'May 20 at 11:59pm',
+    //         points: 100,
+    //     },
+    //     {
+    //         id: '125',
+    //         name: 'A3 - JAVASCRIPT + REACT',
+    //         href: '#/Kanbas/Courses/1234/Assignments/125',
+    //         modules: 'Multiple Modules',
+    //         availability: 'Not available until May 20 at 12:00am',
+    //         dueDate: 'May 27 at 11:59pm',
+    //         points: 100,
+    //     },
+    // ];
     return (
         <div id="wd-modules-controls" className="text-nowrap">
             <span className="me-1 position-relative">
