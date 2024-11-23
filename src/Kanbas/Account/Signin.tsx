@@ -35,7 +35,7 @@
 //     </div>
 //   );
 // }
-
+import * as client from "./client";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setCurrentUser } from "./reducer";
@@ -46,9 +46,15 @@ export default function Signin() {
   const [credentials, setCredentials] = useState<any>({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const signin = () => {
-    const user = db.users.find(
-      (u: any) => u.username === credentials.username && u.password === credentials.password);
+  // const signin = () => {
+  //   const user = db.users.find(
+  //     (u: any) => u.username === credentials.username && u.password === credentials.password);
+  //   if (!user) return;
+  //   dispatch(setCurrentUser(user));
+  //   navigate("/Kanbas/Dashboard");
+  // };
+  const signin = async () => {
+    const user =  await client.signin(credentials);
     if (!user) return;
     dispatch(setCurrentUser(user));
     navigate("/Kanbas/Dashboard");
