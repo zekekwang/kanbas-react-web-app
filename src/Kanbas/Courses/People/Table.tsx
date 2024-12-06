@@ -51,6 +51,7 @@
 
 import { FaUserCircle } from "react-icons/fa";
 // import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 import * as client from "../../Account/client";
 import PeopleDetails from "./Details";
 // import * as db from "../../Database";
@@ -59,6 +60,7 @@ import { Link } from "react-router-dom";
 export default function PeopleTable({ users = [] }: { users?: any[] }) {
     // const { cid } = useParams();
     // const { users, enrollments } = db;
+    
     return (
         <div id="wd-people-table">
             <PeopleDetails />
