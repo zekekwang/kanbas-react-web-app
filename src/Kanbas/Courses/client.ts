@@ -1,6 +1,9 @@
 import axios from "axios";
 const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 const COURSES_API = `${REMOTE_SERVER}/api/courses`;
+const axiosWithCredentials = axios.create({ withCredentials: true });
+// enable axios to send cookies with every request multipule users
+
 
 export const createModuleForCourse = async (courseId: string, module: any) => {
     const response = await axios.post(
@@ -17,7 +20,7 @@ export const findModulesForCourse = async (courseId: string) => {
 };
 
 export const fetchAllCourses = async () => {
-    const { data } = await axios.get(COURSES_API);
+    const { data } = await axiosWithCredentials.get(COURSES_API);
     return data;
 };
 export const deleteCourse = async (id: string) => {

@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import * as courseClient from "./Courses/client";
 import * as userClient from "./Account/client";
 
+
 import "./styles.css";
 
 export interface Course {
@@ -27,9 +28,10 @@ export interface Course {
 export default function Kanbas() {
     const [courses, setCourses] = useState<any[]>([]);
     const { currentUser } = useSelector((state: any) => state.accountReducer);
+    
     const fetchCourses = async () => {
       try {
-        const courses = await userClient.findMyCourses();
+        const courses = await courseClient.fetchAllCourses();
         setCourses(courses);
       } catch (error) {
         console.error(error);
