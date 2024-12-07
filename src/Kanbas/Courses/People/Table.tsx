@@ -56,11 +56,36 @@ import * as client from "../../Account/client";
 import PeopleDetails from "./Details";
 // import * as db from "../../Database";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { findUsersForCourse } from "../../Courses/client";
+
+interface PeopleTableProps {
+    users?: any[];
+}
+
 
 export default function PeopleTable({ users = [] }: { users?: any[] }) {
     // const { cid } = useParams();
     // const { users, enrollments } = db;
-    
+    const { cid } = useParams<{ cid: string }>(); // get the course id from the URL
+    const [stateUsers, setStateUsers] = useState<any[]>(users || []);
+
+    useEffect(() => {
+        // if the users are not passed as props, fetch them from the database
+        if (!users && cid) {
+            const fetchUsersForCourse = async () => {
+                try {
+                    const enrolledUsers = await findUsersForCourse(cid);
+                    setStateUsers(enrolledUsers);
+                } catch (error) {
+                    console.error("Failed to fetch users for course:", error);
+                }
+            };
+            fetchUsersForCourse();
+        }
+        setStateUsers(users || []);
+    }, [users, cid]);
+
     return (
         <div id="wd-people-table">
             <PeopleDetails />

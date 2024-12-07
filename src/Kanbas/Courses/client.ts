@@ -4,6 +4,12 @@ const COURSES_API = `${REMOTE_SERVER}/api/courses`;
 const axiosWithCredentials = axios.create({ withCredentials: true });
 // enable axios to send cookies with every request multipule users
 
+export const findUsersForCourse = async (courseId: string) => {
+    const response = await axios.get(`${COURSES_API}/${courseId}/users`);
+    return response.data;
+   };
+   
+
 export const createCourse = async (course: any) => {
     const { data } = await axiosWithCredentials.post(COURSES_API, course);
     return data;
