@@ -94,14 +94,14 @@ export default function Dashboard({
 
   return (
     <div id="wd-dashboard">
-      <div className="d-flex justify-content-between align-items-center">
+      {/* <div className="d-flex justify-content-between align-items-center"> */}
         <h1 id="wd-dashboard-title">Dashboard
           <button onClick={() => setEnrolling(!enrolling)} className="float-end btn btn-primary" >
             {enrolling ? "My Courses" : "All Courses"}
           </button>
         </h1>
 
-        {currentUser.role === "STUDENT" && (
+        {/* {currentUser.role === "STUDENT" && (
           <button
             className="btn btn-info float-end"
             onClick={toggleEnrollments}
@@ -110,28 +110,26 @@ export default function Dashboard({
               ? "View All Courses"
               : "View Enrolled Courses"}
           </button>
-        )}
-      </div>
+        )} */}
+      {/* </div> */}
       <hr />
 
       {/* <ProtectedContent> */}
-        <h5>
-          New Course
-          <button
-            className="btn btn-primary float-end"
-            id="wd-add-new-course-click"
-            onClick={addNewCourse}
-          >
-            Add
-          </button>
-          <button
-            className="btn btn-warning float-end me-2"
-            onClick={updateCourse}
-            id="wd-update-course-click"
-          >
-            Update
-          </button>
-        </h5>
+      {currentUser && currentUser.role === "FACULTY" && (
+        <>
+          <h5>New Course
+              <button className="btn btn-primary float-end"
+                      id="wd-add-new-course-click"
+                      onClick={addNewCourse} > 
+                Add 
+              </button>
+
+              <button className="btn btn-warning float-end me-2"
+                      onClick={updateCourse} 
+                      id="wd-update-course-click">
+                Update
+              </button>
+          </h5>
         <br />
         <input
           value={course.name}
@@ -146,6 +144,8 @@ export default function Dashboard({
           }
         />
         <hr />
+        </>
+      )}
       {/* </ProtectedContent> */}
 
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
@@ -197,7 +197,7 @@ export default function Dashboard({
                       Go
                     </button>
 
-                    {currentUser.role === "STUDENT" && (
+                    {/* {currentUser.role === "STUDENT" && (
                       enrollmentStatus[course._id] ? (
                         <button
                           onClick={() => handleUnenroll(course._id)}
@@ -213,7 +213,7 @@ export default function Dashboard({
                           Enroll
                         </button>
                       )
-                    )}
+                    )} */}
 
                     {/* <ProtectedContent> */}
                       <button
@@ -249,3 +249,5 @@ export default function Dashboard({
     </div>
   );
 }
+
+
