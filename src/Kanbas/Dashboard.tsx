@@ -114,7 +114,7 @@ export default function Dashboard({
       </div>
       <hr />
 
-      <ProtectedContent>
+      {/* <ProtectedContent> */}
         <h5>
           New Course
           <button
@@ -146,7 +146,7 @@ export default function Dashboard({
           }
         />
         <hr />
-      </ProtectedContent>
+      {/* </ProtectedContent> */}
 
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
       <hr />
@@ -215,7 +215,7 @@ export default function Dashboard({
                       )
                     )}
 
-                    <ProtectedContent>
+                    {/* <ProtectedContent> */}
                       <button
                         onClick={(event) => {
                           event.preventDefault();
@@ -226,9 +226,9 @@ export default function Dashboard({
                       >
                         Delete
                       </button>
-                    </ProtectedContent>
+                    {/* </ProtectedContent> */}
 
-                    <ProtectedContent>
+                    {/* <ProtectedContent> */}
                       <button
                         id="wd-edit-course-click"
                         onClick={(event) => {
@@ -239,7 +239,7 @@ export default function Dashboard({
                       >
                         Edit
                       </button>
-                    </ProtectedContent>
+                    {/* </ProtectedContent> */}
                   </div>
                 </div>
               </div>
