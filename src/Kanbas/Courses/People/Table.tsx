@@ -74,8 +74,10 @@ export default function PeopleTable({ users = [] }: { users?: any[] }) {
         if (!users && cid) {
             const fetchUsersForCourse = async () => {
                 try {
+                    console.log("Fetching users for course:", cid);
                     const enrolledUsers = await findUsersForCourse(cid);
                     setStateUsers(enrolledUsers);
+                    console.log("Fetched users for course:", enrolledUsers);
                 } catch (error) {
                     console.error("Failed to fetch users for course:", error);
                 }
