@@ -314,7 +314,7 @@ export default function Kanbas() {
               <Route path="/Account/*" element={<Account />} />
 
               <Route path="/Dashboard" element={
-                <ProtectedRoute>
+                // <ProtectedRoute>
                   <Dashboard
                     mycourses={mycourses}
                     allCourses={allCourses}
@@ -328,7 +328,7 @@ export default function Kanbas() {
                     setEnrolling={setEnrolling}
                     updateEnrollment={updateEnrollment}
                   />
-                </ProtectedRoute>
+                // </ProtectedRoute>
               } /> 
 
               {/* Use CourseRoute here */}
