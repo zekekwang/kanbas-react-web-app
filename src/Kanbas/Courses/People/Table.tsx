@@ -71,7 +71,6 @@ export default function PeopleTable({ users = [] }: { users?: any[] }) {
     const [stateUsers, setStateUsers] = useState<any[]>(users || []);
 
     useEffect(() => {
-        // if the users are not passed as props, fetch them from the database
         if (!users && cid) {
             const fetchUsersForCourse = async () => {
                 try {
