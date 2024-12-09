@@ -5,17 +5,21 @@ import LessonControlButtons from "./LessonControlButtons";
 import { BsGripVertical } from "react-icons/bs";
 import ModuleControlButtons from "./ModuleControlButtons";
 import { useParams } from "react-router";
-import * as db from "../../Database";
+// import * as db from "../../Database";
 import { setModules, addModule, editModule, updateModule, deleteModule }
   from "./reducer";
 import * as coursesClient from "../client";
 import * as modulesClient from "./client";
 import { useSelector, useDispatch } from "react-redux";
+import { current } from "@reduxjs/toolkit";
 
 export default function Modules() {
   const { cid } = useParams();
   const [moduleName, setModuleName] = useState("");
   const { modules } = useSelector((state: any) => state.modulesReducer);
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const role = currentUser ? currentUser.role : null;
+
   const dispatch = useDispatch();
 
   const saveModule = async (module: any) => {
@@ -48,11 +52,12 @@ export default function Modules() {
 
   return (
     <div>
-      <ModulesControls setModuleName={setModuleName} moduleName={moduleName} addModule={
+      {(role === "FACULTY"|| role === "ADMIN") && <ModulesControls setModuleName={setModuleName} moduleName={moduleName} addModule={
         // () => {
         // dispatch(addModule({ name: moduleName, course: cid }));
         // setModuleName("");
-        createModuleForCourse} />
+        createModuleForCourse} />}
+      
       <br />
       <br />
       <br />

@@ -315,7 +315,7 @@
 import { useParams } from "react-router-dom"; 
 import { useSelector,useDispatch } from "react-redux";
 import AssignmentsControls from "./AssignmentsControls";
-import AssignmentsControlButton from "./AssignmentControlButtons";
+import AssignmentsControlButton from "./AssignmentsControlButton";
 import { BsGripVertical } from "react-icons/bs";
 import { MdArrowDropDown } from "react-icons/md";
 import AssignmentItem from "./AssignmentItem";
