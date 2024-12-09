@@ -24,6 +24,7 @@ export default function Labs() {
                 <Route path="Lab5" element={<Lab5 />} />
             </Routes>
             <h4>Zexi Kuang 001520688 SC1</h4>
+            <h4>TeamGO: Weijian Huang, Qirui Yang, Zexi </h4>
         </div>
         </Provider>
     );
