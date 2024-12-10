@@ -80,12 +80,13 @@ export default function Modules() {
                     }}
                     defaultValue={module.name} />
                 )}
-                <ModuleControlButtons moduleId={module._id}
+                (role === "FACULTY"|| role === "ADMIN") &&
+                {<ModuleControlButtons moduleId={module._id}
                   // deleteModule={(moduleId) => {
                   //   dispatch(deleteModule(moduleId));
                   // }} 
                   deleteModule={(moduleId) => removeModule(moduleId)}
-                  editModule={(moduleId) => dispatch(editModule(moduleId))} />
+                  editModule={(moduleId) => dispatch(editModule(moduleId))} />}
               </div>
 
               {module.lessons && module.lessons.length > 0 ? (
