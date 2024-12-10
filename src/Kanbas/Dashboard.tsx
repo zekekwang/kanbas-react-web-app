@@ -218,8 +218,6 @@
 
 
 
-
-//kanbas-react-web-app/src/Kanbas/Dashboard.tsx
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
