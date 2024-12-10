@@ -68,9 +68,11 @@ export default function Quizzes() {
           {quizzes.map((quiz: any) => (
             <ul className="wd-assignments list-group rounded-0">
               <li className="wd-assignments list-group-item ps-1 fs-5 border-gray">
-              <div className="d-flex align-items-center">
+                <div className="d-flex align-items-center">
                 <BsGripVertical className="me-2 fs-2"/>
-                <PiNotePencil className="fs-2"/>
+                <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`}>
+                  <PiNotePencil className="fs-2"/>
+                </Link>
                 <div className="mt-2 mb-2 flex-grow-1">
                 <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`} className="text-black text-decoration-none">
                 <ul><strong>{quiz.name}</strong></ul></Link>
@@ -79,7 +81,7 @@ export default function Quizzes() {
                 </div>
                 {currentUser.role === "FACULTY" &&
                 <><br /><QuizControlButtons quizID={quiz._id}/><br /></>}
-              </div></li>
+                </div></li>
             </ul>
           ))}
         </ul>
