@@ -80,7 +80,8 @@ export default function Quizzes() {
                 &nbsp;{formatDate(quiz.due_date)} | {quiz.points} pts | {quiz.num_of_questions} Questions</ul>
                 </div>
                 {currentUser.role === "FACULTY" &&
-                <><br /><QuizControlButtons quizID={quiz._id}/><br /></>}
+                <><br /><QuizControlButtons quizID={quiz._id}
+                /><br /></>}
                 </div></li>
             </ul>
           ))}

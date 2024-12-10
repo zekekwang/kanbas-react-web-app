@@ -7,6 +7,8 @@ import * as quizzesClient from "./client";
 import * as questionsClient from "./Questions/client";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+
 
 
 export default function QuizControlButtons({ quizID }: { quizID: string }) {
@@ -14,6 +16,7 @@ export default function QuizControlButtons({ quizID }: { quizID: string }) {
   const [showMenu, setShowMenu] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { cid } = useParams<{ cid: string }>();
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -32,7 +35,7 @@ export default function QuizControlButtons({ quizID }: { quizID: string }) {
   }
 
   const editQuiz = () => {
-    navigate(`/Kanbas/Courses/Quizzes/${quizID}/Details`);
+    navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizID}`);
   };
 
   return (
