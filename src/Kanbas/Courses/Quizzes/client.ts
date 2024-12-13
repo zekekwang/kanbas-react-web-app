@@ -54,12 +54,7 @@ export const updateAttempt = async (quizId: String, attempt: any) => {
     return data;
 }
 
-export const getAttemptsForUser = async (quizId: String, userId: String) => {
+export const getAttemptsForUser = async (quizId: string, userId: string) => {
     const { data } = await axiosWithCredentials.get(`${QUIZ_API}/${quizId}/${userId}/attempts`);
-    return data;
-}
-
-export const getNumberAttemptForUser = async (quizId: String, userId: String) => {
-    const { data } = await axiosWithCredentials.get(`${QUIZ_API}/${quizId}/${userId}/attempts/number`);
     return data;
 }

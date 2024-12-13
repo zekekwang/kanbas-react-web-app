@@ -14,6 +14,7 @@ import { Routes, Route } from 'react-router-dom';
 import QuizzesList from './QuizzesList';
 import QuizDetails from './QuizDetails';
 import QuizEditor from './Editor';
+import * as quizzesClient from './client';
 
 export default function Quizzes() {
 
@@ -35,6 +36,24 @@ export default function Quizzes() {
     useEffect(() => {
       fetchQuizzes();
     }, [cid, currentUser]);
+
+    const [quizAttempts, setQuizAttempts] = useState<{ [key: string]: any }>({});
+
+    useEffect(() => {
+      if (currentUser.role === "STUDENT") {
+        const fetchAttempts = async () => {
+          const attemptsMap: { [key: string]: any } = {};
+          await Promise.all(quizzes.map(async (quiz: any) => {
+            const attempts = await quizzesClient.getAttemptsForUser(quiz._id, currentUser._id);
+            if (attempts.length > 0) {
+              attemptsMap[quiz._id] = attempts[attempts.length - 1];
+            }
+          }));
+          setQuizAttempts(attemptsMap);
+        };
+        fetchAttempts();
+      }
+    }, [quizzes, currentUser]);
 
     const formatDate = (date: any) => {
       date = new Date(date);
@@ -82,6 +101,9 @@ export default function Quizzes() {
                 <div className="mt-2 mb-2 flex-grow-1">
                 <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`} className="text-black text-decoration-none">
                 <ul><strong>{quiz.name}</strong></ul></Link>
+                {currentUser.role === "STUDENT" && quizAttempts[quiz._id] && (
+                  <ul><strong>Score:</strong> {quizAttempts[quiz._id].points_earned} / {quiz.points}</ul>
+                )}
                 <ul className="wd-assignment-description"> {compareDate(quiz.available_date, quiz.due_date)} | <strong> Due</strong>
                 &nbsp;{formatDate(quiz.due_date)} | {quiz.points} pts | {quiz.num_of_questions} Questions</ul>
                 </div>
