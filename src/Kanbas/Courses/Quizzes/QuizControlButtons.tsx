@@ -35,7 +35,7 @@ export default function QuizControlButtons({ quizID }: { quizID: string }) {
   }
 
   const editQuiz = () => {
-    navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizID}`);
+    navigate(`/Kanbas/Courses/${cid}/Quizzes/${quizID}/Edit`);
   };
 
   return (

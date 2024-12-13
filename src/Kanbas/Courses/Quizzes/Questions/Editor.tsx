@@ -27,6 +27,36 @@ export default function QuestionEditor() {
     const [possibleAnswers, setPossibleAnswers] = useState<string[]>(question && question.possible_answers);
     const [correctAnswer, setCorrectAnswer] = useState<any>();
 
+
+    const createNewAttempt = async () => {
+        if (!qid) return;
+
+        const quiz = await quizzesClient.getQuiz(qid);
+
+        const answers = questions.map((question: any) => ({
+            question: question._id,
+            user_answer: null,
+            is_correct: false,
+        }));
+
+        const attempt = {
+            user: currentUser._id,
+            user_firstName: currentUser.firstName,
+            user_lastName: currentUser.lastName,
+            quiz: qid,
+            quiz_name: quiz.name,
+            course: quiz.course,
+            attempt_time: Date.now(),
+            points_earned: 0,
+            total_points: quiz.points,
+            answers: answers,
+        }
+
+        const newAttempt = await quizzesClient.createAttempt(quiz, attempt);
+        navigate(`${currentPath.replace(`/${qaid}`, `/View/${newAttempt._id}/${qaid}`)}`);
+    }
+
+
     const updateQuiz = async (questions: any[]) => {
 
         if (!qid || !question) return;
@@ -365,6 +395,9 @@ export default function QuestionEditor() {
 
             </div>
             <hr />
+            
+            {/* <button onClick={createNewAttempt} 
+            className="btn btn-primary float-end ms-3">Preview Quiz</button> */}
             <Link to={`${currentPath.replace(`/${qaid}`, `/View/${qaid}`)}`} className="btn btn-primary float-end ms-3"> 
             Preview Quiz</Link>
             <button className="btn btn-danger float-end" onClick={addNewQuestion} >Add A Question</button>

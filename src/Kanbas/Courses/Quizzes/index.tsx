@@ -9,6 +9,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setQuizzes } from './reducer';
 import * as coursesClient from "../client";
 import { useEffect, useState } from 'react';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import QuizzesList from './QuizzesList';
+import QuizDetails from './QuizDetails';
+import QuizEditor from './Editor';
 
 export default function Quizzes() {
 
@@ -70,9 +75,10 @@ export default function Quizzes() {
               <li className="wd-assignments list-group-item ps-1 fs-5 border-gray">
                 <div className="d-flex align-items-center">
                 <BsGripVertical className="me-2 fs-2"/>
-                <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`}>
+                {currentUser.role === "FACULTY" && <>
+                <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}/Edit`}>
                   <PiNotePencil className="fs-2"/>
-                </Link>
+                </Link></>}
                 <div className="mt-2 mb-2 flex-grow-1">
                 <Link to={`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`} className="text-black text-decoration-none">
                 <ul><strong>{quiz.name}</strong></ul></Link>
@@ -86,6 +92,11 @@ export default function Quizzes() {
             </ul>
           ))}
         </ul>
+        {/* <Routes>
+          <Route path="/" element={<QuizzesList />} />
+          <Route path=":qid" element={<QuizDetails />} />
+          <Route path=":qid/Edit" element={<QuizEditor />} />
+        </Routes> */}
       </div>
   );
 }

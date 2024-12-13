@@ -58,4 +58,8 @@ export const findQuizzesForCourse = async (courseId: string) => {
     return response.data;
   };
   
+  export const findAttemptsForCourse = async (courseId: string) => {
+    const { data } = await axiosWithCredentials.get(`${COURSES_API}/${courseId}/grades`);
+    return data;
+  }
 

@@ -81,7 +81,7 @@ export default function QuizEditor() {
           has_time_limit: hasTimeLimit,
           time_limit: timeLimit,
           has_many_attempts: hasManyAttempts,
-          how_many_attempts: numOfAttempts,
+          how_many_attempts: parseInt(numOfAttempts, 10) || 1,
           show_correct_answer: showCorrectAnswer,
           show_answer_date: showAnswerDate,
           access_code_required: accessCodeRequired,
@@ -264,7 +264,7 @@ export default function QuizEditor() {
                   }}/>
                   <label className="form-check-label pt-1 me-2" htmlFor="wd-media-recordings">Allow Multiple Attempts</label>
                   {hasManyAttempts === "yes" && <><input type="input" id="wd-num-of-attempts" className="form-control w-25 col-form-label ms-2" 
-                        value={quiz.how_many_attempts} 
+                        value={numOfAttempts} 
                         onChange={(e) => setNumOfAttempts(e.target.value)}
                         disabled={hasManyAttempts === "no"}/>
                         <span className="ms-2">Attempt(s)</span></>}

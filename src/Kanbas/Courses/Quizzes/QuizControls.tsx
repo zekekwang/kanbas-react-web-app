@@ -41,7 +41,7 @@ export default function QuizControls(){
     };
 
     const quiz = await coursesClient.createQuizForCourse(cid, newQuiz);
-    navigate(`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}`);
+    navigate(`/Kanbas/Courses/${cid}/Quizzes/${quiz._id}/Edit`);
     dispatch(addQuiz(quiz));
   }
 
