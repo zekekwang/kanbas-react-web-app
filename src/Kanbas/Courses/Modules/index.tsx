@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import ModulesControls from "./ModulesControls";
 import LessonControlButtons from "./LessonControlButtons";
@@ -23,19 +22,30 @@ export default function Modules() {
   const dispatch = useDispatch();
 
   const saveModule = async (module: any) => {
-    await modulesClient.updateModule(module);
+    const { editing, ...moduleData } = module; // Remove transient properties
+    await modulesClient.updateModule(moduleData);
     dispatch(updateModule(module));
   };
 
 
   const removeModule = async (moduleId: string) => {
+    console.log("removeModule: moduleId =", moduleId);
     await modulesClient.deleteModule(moduleId);
     dispatch(deleteModule(moduleId));
   };
 
+  // const createModuleForCourse = async () => {
+  //   if (!cid) return;
+  //   const newModule = { name: moduleName, course: cid };
+  //   const createdModule = await coursesClient.createModuleForCourse(cid, newModule);
+  //   dispatch(addModule(createdModule)); // Use the module returned from the server
+  //   setModuleName("");
+  // };
+
   const createModuleForCourse = async () => {
     if (!cid) return;
     const newModule = { name: moduleName, course: cid };
+    console.log("createModuleForCourse: newModule =", newModule);
     const module = await coursesClient.createModuleForCourse(cid, newModule);
     dispatch(addModule(module));
   };
@@ -47,7 +57,7 @@ export default function Modules() {
   };
   useEffect(() => {
     fetchModules();
-  }, []);
+  }, [modules]);
 
 
   return (
@@ -74,7 +84,6 @@ export default function Modules() {
                     onChange={(e) => dispatch(updateModule({ ...module, name: e.target.value }))}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        // dispatch(updateModule({ ...module, editing: false }));
                         saveModule({ ...module, editing: false });
                       }
                     }}
